@@ -1,0 +1,7381 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Digital Technologies — First Term CBT Assessment</title>
+
+<style>
+
+/* =========================================================
+
+   RESET
+
+========================================================= */
+
+*{
+
+    box-sizing:border-box;
+
+    margin:0;
+
+    padding:0;
+
+}
+
+:root{
+
+    --teal:#11666b;
+
+    --teal-dark:#0d575c;
+
+    --teal-light:#edf6f6;
+
+    --blue:#1769e0;
+
+    --navy:#123a9e;
+
+    --green:#159447;
+
+    --red:#dc3545;
+
+    --orange:#ef8b21;
+
+    --bg:#f2f7f7;
+
+    --card:#ffffff;
+
+    --line:#d9e2e2;
+
+    --muted:#68777a;
+
+    --text:#243437;
+
+    --shadow:0 12px 35px rgba(25,55,58,.08);
+
+}
+
+body{
+
+    font-family:Arial,Helvetica,sans-serif;
+
+    background:var(--bg);
+
+    color:var(--text);
+
+    min-height:100vh;
+
+}
+
+button,
+
+input,
+
+select{
+
+    font-family:inherit;
+
+}
+
+button{
+
+    cursor:pointer;
+
+}
+
+.hidden{
+
+    display:none !important;
+
+}
+
+/* =========================================================
+
+   MARQUEE
+
+========================================================= */
+
+.top-marquee{
+
+    width:100%;
+
+    overflow:hidden;
+
+    background:var(--teal);
+
+    color:#fff;
+
+    border:1px solid rgba(255,255,255,.18);
+
+    padding:8px 0;
+
+    white-space:nowrap;
+
+}
+
+.marquee-track{
+
+    display:inline-block;
+
+    padding-left:100%;
+
+    animation:marquee 13s linear infinite;
+
+}
+
+.marquee-track span{
+
+    font-size:14px;
+
+    font-weight:bold;
+
+    letter-spacing:2px;
+
+}
+
+@keyframes marquee{
+
+    0%{
+
+        transform:translateX(0);
+
+    }
+
+    100%{
+
+        transform:translateX(-100%);
+
+    }
+
+}
+
+/* =========================================================
+
+   GENERAL
+
+========================================================= */
+
+.page{
+
+    width:100%;
+
+    max-width:1150px;
+
+    margin:auto;
+
+    padding:38px 20px 60px;
+
+}
+
+.screen{
+
+    display:none;
+
+}
+
+.screen.active{
+
+    display:block;
+
+}
+
+/* =========================================================
+
+   STUDENT LOGIN
+
+========================================================= */
+
+.login-page{
+
+    max-width:760px;
+
+    margin:auto;
+
+}
+
+.school-header{
+
+    width:100%;
+
+    max-width:522px;
+
+    margin:0 auto 44px;
+
+    background:var(--teal);
+
+    color:white;
+
+    text-align:center;
+
+    padding:0 28px 31px;
+
+}
+
+.school-header .top-marquee{
+
+    margin:0 -28px 28px;
+
+    width:calc(100% + 56px);
+
+    background:rgba(0,0,0,.08);
+
+}
+
+.logo{
+
+    width:62px;
+
+    height:62px;
+
+    border:1px solid rgba(255,255,255,.4);
+
+    border-radius:50%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    margin:0 auto 19px;
+
+    font-size:20px;
+
+    font-weight:bold;
+
+    letter-spacing:.5px;
+
+}
+
+.school-name{
+
+    font-size:24px;
+
+    line-height:1.5;
+
+    font-weight:500;
+
+    letter-spacing:1px;
+
+    margin-bottom:14px;
+
+}
+
+.assessment-title{
+
+    font-size:19px;
+
+    color:#d8e3e4;
+
+    font-weight:400;
+
+    line-height:1.4;
+
+    margin-bottom:25px;
+
+}
+
+.level-badge{
+
+    display:inline-block;
+
+    border:1px solid rgba(255,255,255,.3);
+
+    border-radius:30px;
+
+    padding:10px 17px;
+
+    font-size:13px;
+
+    letter-spacing:1.5px;
+
+    color:#e8eeee;
+
+}
+
+.login-card{
+
+    width:100%;
+
+    max-width:490px;
+
+    margin:0 auto;
+
+    background:#fff;
+
+    border:1px solid var(--line);
+
+    border-radius:18px;
+
+    padding:28px 24px 25px;
+
+    box-shadow:var(--shadow);
+
+}
+
+.welcome{
+
+    color:var(--teal);
+
+    font-size:15px;
+
+    font-weight:bold;
+
+    letter-spacing:1.6px;
+
+    margin-bottom:15px;
+
+}
+
+.login-title{
+
+    font-size:20px;
+
+    font-weight:500;
+
+    margin-bottom:6px;
+
+}
+
+.login-description{
+
+    color:var(--muted);
+
+    font-size:18px;
+
+    line-height:1.75;
+
+    margin-bottom:23px;
+
+}
+
+/* =========================================================
+
+   FORM
+
+========================================================= */
+
+.form-group{
+
+    margin-bottom:19px;
+
+}
+
+.form-group label{
+
+    display:block;
+
+    font-size:16px;
+
+    font-weight:bold;
+
+    margin-bottom:9px;
+
+}
+
+.form-control{
+
+    width:100%;
+
+    height:48px;
+
+    border:1px solid #d5dddd;
+
+    border-radius:25px;
+
+    padding:0 14px;
+
+    font-size:17px;
+
+    color:var(--text);
+
+    outline:none;
+
+    background:white;
+
+}
+
+.form-control:focus{
+
+    border-color:var(--teal);
+
+    box-shadow:0 0 0 3px rgba(17,102,107,.08);
+
+}
+
+textarea.form-control{
+
+    height:120px;
+
+    padding:14px;
+
+    border-radius:15px;
+
+    resize:vertical;
+
+}
+
+.start-btn{
+
+    width:100%;
+
+    height:61px;
+
+    border:0;
+
+    border-radius:18px;
+
+    background:var(--teal);
+
+    color:#fff;
+
+    font-size:20px;
+
+    font-weight:bold;
+
+    transition:.2s;
+
+}
+
+.start-btn:hover{
+
+    background:var(--teal-dark);
+
+}
+
+.assessment-details{
+
+    margin-top:23px;
+
+    background:#f0f6f6;
+
+    border:1px solid #d9e2e2;
+
+    border-left:5px solid var(--teal);
+
+    border-radius:0 17px 17px 17px;
+
+    padding:23px 20px;
+
+}
+
+.assessment-details h3{
+
+    color:var(--teal);
+
+    font-size:19px;
+
+    margin-bottom:10px;
+
+}
+
+.assessment-details p{
+
+    font-size:17px;
+
+    line-height:1.9;
+
+}
+
+.admin-btn{
+
+    margin-top:24px;
+
+    min-height:60px;
+
+    padding:0 21px;
+
+    background:white;
+
+    border:1px solid #d9dfdf;
+
+    border-radius:17px;
+
+    font-size:18px;
+
+    font-weight:bold;
+
+    color:#26373a;
+
+}
+
+.admin-btn:hover{
+
+    border-color:var(--teal);
+
+    color:var(--teal);
+
+}
+
+/* =========================================================
+
+   MESSAGES
+
+========================================================= */
+
+.message{
+
+    padding:13px 15px;
+
+    border-radius:10px;
+
+    margin:12px 0;
+
+    font-size:14px;
+
+    display:none;
+
+}
+
+.message.show{
+
+    display:block;
+
+}
+
+.message.error{
+
+    background:#fff0f0;
+
+    border:1px solid #f3c4c4;
+
+    color:#b42318;
+
+}
+
+.message.success{
+
+    background:#eef9f0;
+
+    border:1px solid #c8e5ce;
+
+    color:#24713b;
+
+}
+
+.message.info{
+
+    background:#eef6ff;
+
+    border:1px solid #c8ddf5;
+
+    color:#17528b;
+
+}
+
+/* =========================================================
+
+   BUTTONS
+
+========================================================= */
+
+.btn{
+
+    border:0;
+
+    border-radius:10px;
+
+    padding:12px 17px;
+
+    font-size:14px;
+
+    font-weight:bold;
+
+    transition:.2s;
+
+}
+
+.btn-primary{
+
+    background:var(--teal);
+
+    color:#fff;
+
+}
+
+.btn-primary:hover{
+
+    background:var(--teal-dark);
+
+}
+
+.btn-secondary{
+
+    background:#edf2f4;
+
+    color:#26373a;
+
+}
+
+.btn-danger{
+
+    background:var(--red);
+
+    color:#fff;
+
+}
+
+.btn-success{
+
+    background:var(--green);
+
+    color:#fff;
+
+}
+
+.btn-blue{
+
+    background:var(--blue);
+
+    color:#fff;
+
+}
+
+.btn-orange{
+
+    background:var(--orange);
+
+    color:#fff;
+
+}
+
+/* =========================================================
+
+   EXAM HEADER
+
+========================================================= */
+
+.exam-top{
+
+    background:var(--teal);
+
+    color:white;
+
+    border-radius:16px;
+
+    padding:20px;
+
+    margin-bottom:18px;
+
+}
+
+.exam-top-row{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:20px;
+
+}
+
+.exam-title{
+
+    font-size:23px;
+
+    font-weight:bold;
+
+}
+
+.exam-subtitle{
+
+    margin-top:6px;
+
+    color:#dcebec;
+
+}
+
+.timer{
+
+    min-width:150px;
+
+    background:white;
+
+    color:var(--teal);
+
+    border-radius:12px;
+
+    padding:12px 16px;
+
+    text-align:center;
+
+    font-size:22px;
+
+    font-weight:bold;
+
+}
+
+.timer.warning{
+
+    color:var(--red);
+
+}
+
+/* =========================================================
+
+   CANDIDATE INFO
+
+========================================================= */
+
+.candidate-card{
+
+    background:#fff;
+
+    border:1px solid var(--line);
+
+    border-radius:14px;
+
+    padding:17px;
+
+    margin-bottom:17px;
+
+    box-shadow:var(--shadow);
+
+}
+
+.candidate-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:12px;
+
+}
+
+.meta{
+
+    background:#f5f8f8;
+
+    padding:11px;
+
+    border-radius:9px;
+
+}
+
+.meta small{
+
+    display:block;
+
+    color:var(--muted);
+
+    margin-bottom:4px;
+
+}
+
+.meta strong{
+
+    font-size:15px;
+
+}
+
+/* =========================================================
+
+   PROGRESS
+
+========================================================= */
+
+.progress-wrap{
+
+    background:#fff;
+
+    border:1px solid var(--line);
+
+    border-radius:12px;
+
+    padding:14px;
+
+    margin-bottom:17px;
+
+}
+
+.progress-info{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    margin-bottom:8px;
+
+    font-size:14px;
+
+    color:var(--muted);
+
+}
+
+.progress{
+
+    width:100%;
+
+    height:10px;
+
+    background:#e5eeee;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+}
+
+.progress-bar{
+
+    height:100%;
+
+    width:0;
+
+    background:var(--teal);
+
+    transition:.3s;
+
+}
+
+/* =========================================================
+
+   NOTICE
+
+========================================================= */
+
+.notice{
+
+    background:#eef7f7;
+
+    border-left:5px solid var(--teal);
+
+    padding:14px 16px;
+
+    border-radius:0 10px 10px 0;
+
+    margin-bottom:18px;
+
+    color:#345154;
+
+    line-height:1.6;
+
+}
+
+/* =========================================================
+
+   QUESTION
+
+========================================================= */
+
+.question-card{
+
+    background:#fff;
+
+    border:1px solid var(--line);
+
+    border-radius:16px;
+
+    padding:22px;
+
+    margin-bottom:18px;
+
+    box-shadow:var(--shadow);
+
+}
+
+.question-number{
+
+    color:var(--teal);
+
+    font-weight:bold;
+
+    font-size:14px;
+
+    margin-bottom:10px;
+
+}
+
+.question-text{
+
+    font-size:18px;
+
+    line-height:1.65;
+
+    margin-bottom:17px;
+
+    white-space:pre-line;
+
+}
+
+.option{
+
+    display:flex;
+
+    align-items:flex-start;
+
+    gap:10px;
+
+    border:1px solid #dce3e3;
+
+    border-radius:11px;
+
+    padding:13px;
+
+    margin:9px 0;
+
+    cursor:pointer;
+
+    transition:.15s;
+
+}
+
+.option:hover{
+
+    background:#f2f8f8;
+
+    border-color:var(--teal);
+
+}
+
+.option input{
+
+    margin-top:3px;
+
+}
+
+.option.selected{
+
+    background:#edf7f7;
+
+    border-color:var(--teal);
+
+}
+
+/* =========================================================
+
+   EXAM ACTIONS
+
+========================================================= */
+
+.exam-actions{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    gap:12px;
+
+    background:white;
+
+    border:1px solid var(--line);
+
+    padding:17px;
+
+    border-radius:14px;
+
+    margin-top:20px;
+
+}
+
+/* =========================================================
+
+   RESULT
+
+========================================================= */
+
+.result-card{
+
+    max-width:900px;
+
+    margin:auto;
+
+    background:#fff;
+
+    border:1px solid var(--line);
+
+    border-radius:18px;
+
+    padding:28px;
+
+    box-shadow:var(--shadow);
+
+}
+
+.result-title{
+
+    color:var(--teal);
+
+    font-size:27px;
+
+    margin-bottom:8px;
+
+}
+
+.result-subtitle{
+
+    color:var(--muted);
+
+    margin-bottom:25px;
+
+}
+
+.score-box{
+
+    background:var(--teal-light);
+
+    border:1px solid #d5e5e5;
+
+    border-radius:15px;
+
+    padding:24px;
+
+    text-align:center;
+
+    margin-bottom:20px;
+
+}
+
+.score-number{
+
+    font-size:48px;
+
+    color:var(--teal);
+
+    font-weight:bold;
+
+}
+
+.score-label{
+
+    color:var(--muted);
+
+}
+
+.stats{
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:12px;
+
+    margin-bottom:20px;
+
+}
+
+.stat{
+
+    border:1px solid var(--line);
+
+    border-radius:12px;
+
+    padding:16px;
+
+    text-align:center;
+
+}
+
+.stat strong{
+
+    display:block;
+
+    font-size:25px;
+
+    margin-bottom:5px;
+
+}
+
+.stat span{
+
+    color:var(--muted);
+
+    font-size:13px;
+
+}
+
+.result-details{
+
+    margin-top:20px;
+
+}
+
+.result-item{
+
+    border:1px solid var(--line);
+
+    border-radius:12px;
+
+    padding:15px;
+
+    margin-bottom:10px;
+
+}
+
+.result-item.correct{
+
+    border-left:5px solid var(--green);
+
+}
+
+.result-item.wrong{
+
+    border-left:5px solid var(--red);
+
+}
+
+.result-item.unanswered{
+
+    border-left:5px solid var(--orange);
+
+}
+
+.result-item-question{
+
+    font-weight:bold;
+
+    line-height:1.5;
+
+    margin-bottom:9px;
+
+}
+
+.answer-line{
+
+    margin:5px 0;
+
+    color:#526164;
+
+}
+
+.status{
+
+    display:inline-block;
+
+    padding:5px 9px;
+
+    border-radius:20px;
+
+    font-size:12px;
+
+    font-weight:bold;
+
+    margin-top:7px;
+
+}
+
+.status.correct{
+
+    background:#e5f6eb;
+
+    color:#17733a;
+
+}
+
+.status.wrong{
+
+    background:#fde8e8;
+
+    color:#b42318;
+
+}
+
+.status.unanswered{
+
+    background:#fff0d9;
+
+    color:#a45c00;
+
+}
+
+/* =========================================================
+
+   ADMIN
+
+========================================================= */
+
+.admin-page{
+
+    max-width:1150px;
+
+    margin:auto;
+
+}
+
+.admin-header{
+
+    background:var(--teal);
+
+    color:#fff;
+
+    border-radius:16px;
+
+    padding:20px 24px;
+
+    margin-bottom:18px;
+
+}
+
+.admin-header-row{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:20px;
+
+}
+
+.admin-brand{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+}
+
+.admin-logo{
+
+    width:62px;
+
+    height:62px;
+
+    border:1px solid rgba(255,255,255,.4);
+
+    border-radius:50%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:20px;
+
+    font-weight:bold;
+
+}
+
+.admin-brand h1{
+
+    font-size:23px;
+
+}
+
+.admin-brand p{
+
+    color:#d7e7e7;
+
+    margin-top:5px;
+
+}
+
+.admin-layout{
+
+    display:grid;
+
+    grid-template-columns:175px 1fr;
+
+    gap:16px;
+
+}
+
+.admin-sidebar{
+
+    background:#fff;
+
+    border:1px solid var(--line);
+
+    border-radius:14px;
+
+    padding:10px;
+
+    height:max-content;
+
+}
+
+.side-btn{
+
+    width:100%;
+
+    border:0;
+
+    background:white;
+
+    text-align:left;
+
+    padding:13px 11px;
+
+    border-radius:9px;
+
+    margin-bottom:4px;
+
+    font-weight:bold;
+
+    color:#375054;
+
+}
+
+.side-btn:hover,
+
+.side-btn.active{
+
+    background:var(--teal);
+
+    color:#fff;
+
+}
+
+.admin-content{
+
+    min-width:0;
+
+}
+
+.admin-section{
+
+    display:none;
+
+}
+
+.admin-section.active{
+
+    display:block;
+
+}
+
+.panel{
+
+    background:#fff;
+
+    border:1px solid var(--line);
+
+    border-radius:16px;
+
+    padding:20px;
+
+    box-shadow:var(--shadow);
+
+    margin-bottom:16px;
+
+}
+
+.panel-title{
+
+    font-size:22px;
+
+    color:#173e64;
+
+    margin-bottom:7px;
+
+}
+
+.panel-description{
+
+    color:var(--muted);
+
+    margin-bottom:18px;
+
+}
+
+/* =========================================================
+
+   ADMIN SUMMARY
+
+========================================================= */
+
+.summary-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:12px;
+
+    margin-bottom:16px;
+
+}
+
+.summary-card{
+
+    border:1px solid #d8e6ee;
+
+    border-radius:12px;
+
+    padding:17px;
+
+    background:#fbfdfe;
+
+}
+
+.summary-card small{
+
+    display:block;
+
+    color:#557178;
+
+    margin-bottom:8px;
+
+}
+
+.summary-card strong{
+
+    font-size:30px;
+
+    color:var(--teal);
+
+}
+
+/* =========================================================
+
+   TABLE
+
+========================================================= */
+
+.table-wrap{
+
+    width:100%;
+
+    overflow-x:auto;
+
+}
+
+table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+    min-width:850px;
+
+}
+
+th,
+
+td{
+
+    border-bottom:1px solid #e4ebeb;
+
+    padding:12px 10px;
+
+    text-align:left;
+
+    font-size:13px;
+
+}
+
+th{
+
+    background:#f1f6f6;
+
+    color:#173e64;
+
+}
+
+.badge{
+
+    display:inline-block;
+
+    padding:5px 9px;
+
+    border-radius:20px;
+
+    font-size:11px;
+
+    font-weight:bold;
+
+}
+
+.badge-green{
+
+    background:#e3f6eb;
+
+    color:#17733a;
+
+}
+
+.badge-orange{
+
+    background:#fff0d9;
+
+    color:#9b5900;
+
+}
+
+.badge-blue{
+
+    background:#eaf2ff;
+
+    color:#1854a0;
+
+}
+
+/* =========================================================
+
+   ADMIN ACTIONS
+
+========================================================= */
+
+.action-row{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:10px;
+
+    margin-bottom:16px;
+
+}
+
+.quick-grid{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:16px;
+
+}
+
+.quick-btn{
+
+    width:100%;
+
+    padding:14px;
+
+    border:0;
+
+    border-radius:10px;
+
+    color:#fff;
+
+    font-weight:bold;
+
+    margin-bottom:8px;
+
+}
+
+/* =========================================================
+
+   SETTINGS
+
+========================================================= */
+
+.settings-grid{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:17px;
+
+}
+
+.settings-field{
+
+    margin-bottom:15px;
+
+}
+
+.settings-field label{
+
+    display:block;
+
+    font-weight:bold;
+
+    margin-bottom:7px;
+
+    font-size:14px;
+
+}
+
+.settings-note{
+
+    background:#eef7ff;
+
+    border:1px solid #cfe2f5;
+
+    color:#26577f;
+
+    padding:14px;
+
+    border-radius:10px;
+
+    line-height:1.6;
+
+    margin-bottom:17px;
+
+}
+
+/* =========================================================
+
+   QUESTION BANK
+
+========================================================= */
+
+.bank-class{
+
+    border:1px solid var(--line);
+
+    border-radius:13px;
+
+    margin-bottom:15px;
+
+    overflow:hidden;
+
+}
+
+.bank-heading{
+
+    background:var(--teal);
+
+    color:#fff;
+
+    padding:14px;
+
+    font-weight:bold;
+
+}
+
+.bank-question{
+
+    padding:14px;
+
+    border-top:1px solid var(--line);
+
+}
+
+.bank-question strong{
+
+    display:block;
+
+    margin-bottom:8px;
+
+    line-height:1.5;
+
+}
+
+.bank-options{
+
+    color:#58696b;
+
+    line-height:1.7;
+
+    font-size:14px;
+
+}
+
+.correct-answer{
+
+    color:var(--green);
+
+    font-weight:bold;
+
+}
+
+/* =========================================================
+
+   HELP
+
+========================================================= */
+
+.help-list{
+
+    line-height:1.8;
+
+    padding-left:20px;
+
+}
+
+.help-list li{
+
+    margin-bottom:9px;
+
+}
+
+/* =========================================================
+
+   FOOTER
+
+========================================================= */
+
+.footer{
+
+    text-align:center;
+
+    color:var(--muted);
+
+    padding:25px 10px;
+
+    font-size:12px;
+
+}
+
+/* =========================================================
+
+   MOBILE
+
+========================================================= */
+
+@media(max-width:760px){
+
+    .page{
+
+        padding:25px 13px 40px;
+
+    }
+
+    .school-header{
+
+        margin-bottom:30px;
+
+        padding-left:18px;
+
+        padding-right:18px;
+
+    }
+
+    .school-header .top-marquee{
+
+        margin-left:-18px;
+
+        margin-right:-18px;
+
+        width:calc(100% + 36px);
+
+    }
+
+    .school-name{
+
+        font-size:21px;
+
+    }
+
+    .assessment-title{
+
+        font-size:17px;
+
+    }
+
+    .login-description{
+
+        font-size:17px;
+
+    }
+
+    .candidate-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .exam-top-row{
+
+        flex-direction:column;
+
+        align-items:stretch;
+
+    }
+
+    .timer{
+
+        width:100%;
+
+    }
+
+    .stats{
+
+        grid-template-columns:1fr 1fr;
+
+    }
+
+    .admin-layout{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .admin-sidebar{
+
+        display:grid;
+
+        grid-template-columns:1fr 1fr;
+
+        gap:5px;
+
+    }
+
+    .side-btn{
+
+        margin:0;
+
+    }
+
+    .summary-grid{
+
+        grid-template-columns:1fr 1fr;
+
+    }
+
+    .settings-grid,
+
+    .quick-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .admin-header-row{
+
+        align-items:flex-start;
+
+        flex-direction:column;
+
+    }
+
+    .exam-actions{
+
+        flex-direction:column;
+
+    }
+
+    .exam-actions .btn{
+
+        width:100%;
+
+    }
+
+}
+
+@media(max-width:430px){
+
+    .stats,
+
+    .summary-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .login-card{
+
+        padding:24px 18px;
+
+    }
+
+    .school-header{
+
+        padding-bottom:26px;
+
+    }
+
+    .question-text{
+
+        font-size:17px;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- =========================================================
+
+     TOP MARQUEE
+
+========================================================= -->
+
+<div class="top-marquee">
+
+    <div class="marquee-track">
+
+        <span>
+
+            THERE’S A LIFTING UP
+
+        </span>
+
+    </div>
+
+</div>
+
+<!-- =========================================================
+
+     LOGIN SCREEN
+
+========================================================= -->
+
+<section id="loginScreen" class="screen active">
+
+    <div class="page login-page">
+
+        <div class="school-header">
+
+            <div class="logo">
+
+                CA
+
+            </div>
+
+            <div class="school-name">
+
+                CHRIST’S ARROWS COLLEGE ADUM-<br>
+
+                EAST
+
+            </div>
+
+            <div class="assessment-title">
+
+                Digital Technologies · First Term CBT Assessment
+
+            </div>
+
+            <div class="level-badge">
+
+                SENIOR SECONDARY · SSS 1–3
+
+            </div>
+
+        </div>
+
+        <div class="login-card">
+
+            <div class="welcome">
+
+                WELCOME, STUDENT
+
+            </div>
+
+            <div class="login-title">
+
+                Student Login
+
+            </div>
+
+            <div class="login-description">
+
+                Enter your details to begin your Digital
+
+                Technologies assessment. Make sure you have
+
+                enough time to complete the test once you start.
+
+            </div>
+
+            <form id="studentForm">
+
+                <div class="form-group">
+
+                    <label>
+
+                        Student name
+
+                    </label>
+
+                    <input
+
+                        type="text"
+
+                        id="studentName"
+
+                        class="form-control"
+
+                        placeholder="Enter your full name"
+
+                        required
+
+                    >
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>
+
+                        Registration / Examination Number
+
+                    </label>
+
+                    <input
+
+                        type="text"
+
+                        id="studentExamNumber"
+
+                        class="form-control"
+
+                        placeholder="Enter your examination number"
+
+                        required
+
+                    >
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>
+
+                        Class
+
+                    </label>
+
+                    <select
+
+                        id="studentClass"
+
+                        class="form-control"
+
+                        required
+
+                    >
+
+                        <option value="">
+
+                            Select your class
+
+                        </option>
+
+                        <option value="SSS 1">
+
+                            SSS 1
+
+                        </option>
+
+                        <option value="SSS 2">
+
+                            SSS 2
+
+                        </option>
+
+                        <option value="SSS 3">
+
+                            SSS 3
+
+                        </option>
+
+                    </select>
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>
+
+                        Class password
+
+                    </label>
+
+                    <input
+
+                        type="password"
+
+                        id="classPassword"
+
+                        class="form-control"
+
+                        placeholder="Enter your class password"
+
+                        required
+
+                    >
+
+                </div>
+
+                <div
+
+                    id="loginMessage"
+
+                    class="message"
+
+                ></div>
+
+                <button
+
+                    type="submit"
+
+                    class="start-btn"
+
+                >
+
+                    Start assessment
+
+                </button>
+
+            </form>
+
+            <div class="assessment-details">
+
+                <h3>
+
+                    Assessment details
+
+                </h3>
+
+                <p>
+
+                    SSS 1 · 10 questions · 20 minutes
+
+                </p>
+
+                <p>
+
+                    SSS 2 · 15 questions · 20 minutes
+
+                </p>
+
+                <p>
+
+                    SSS 3 · 20 questions · 30 minutes
+
+                </p>
+
+            </div>
+
+            <button
+
+                class="admin-btn"
+
+                id="adminAccessBtn"
+
+            >
+
+                Teacher / Admin access
+
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =========================================================
+
+     EXAM SCREEN
+
+========================================================= -->
+
+<section id="examScreen" class="screen">
+
+    <div class="page">
+
+        <div class="exam-top">
+
+            <div class="exam-top-row">
+
+                <div>
+
+                    <div class="exam-title">
+
+                        Digital Technologies CBT
+
+                    </div>
+
+                    <div class="exam-subtitle">
+
+                        First Term Assessment
+
+                    </div>
+
+                </div>
+
+                <div
+
+                    id="timer"
+
+                    class="timer"
+
+                >
+
+                    20:00
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="candidate-card">
+
+            <div class="candidate-grid">
+
+                <div class="meta">
+
+                    <small>Student</small>
+
+                    <strong id="examStudentName">-</strong>
+
+                </div>
+
+                <div class="meta">
+
+                    <small>Class</small>
+
+                    <strong id="examStudentClass">-</strong>
+
+                </div>
+
+                <div class="meta">
+
+                    <small>Examination Number</small>
+
+                    <strong id="examStudentNumber">-</strong>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="progress-wrap">
+
+            <div class="progress-info">
+
+                <span id="progressText">
+
+                    0 of 10 answered
+
+                </span>
+
+                <span id="progressPercent">
+
+                    0%
+
+                </span>
+
+            </div>
+
+            <div class="progress">
+
+                <div
+
+                    id="progressBar"
+
+                    class="progress-bar"
+
+                ></div>
+
+            </div>
+
+        </div>
+
+        <div class="notice">
+
+            Answer all questions you can. Unanswered questions
+
+            will be counted separately. When the time expires,
+
+            your examination will be submitted automatically.
+
+        </div>
+
+        <div id="questionsContainer"></div>
+
+        <div class="exam-actions">
+
+            <button
+
+                class="btn btn-secondary"
+
+                onclick="confirmSubmit()"
+
+            >
+
+                Submit Examination
+
+            </button>
+
+            <button
+
+                class="btn btn-primary"
+
+                onclick="confirmSubmit()"
+
+            >
+
+                Submit and Finish
+
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =========================================================
+
+     RESULT SCREEN
+
+========================================================= -->
+
+<section id="resultScreen" class="screen">
+
+    <div class="page">
+
+        <div class="result-card">
+
+            <div class="result-title">
+
+                Examination Result
+
+            </div>
+
+            <div class="result-subtitle">
+
+                Your Digital Technologies assessment has been
+
+                completed.
+
+            </div>
+
+            <div class="score-box">
+
+                <div
+
+                    id="resultScore"
+
+                    class="score-number"
+
+                >
+
+                    0%
+
+                </div>
+
+                <div class="score-label">
+
+                    Overall Score
+
+                </div>
+
+            </div>
+
+            <div class="stats">
+
+                <div class="stat">
+
+                    <strong id="resultCorrect">0</strong>
+
+                    <span>Correct</span>
+
+                </div>
+
+                <div class="stat">
+
+                    <strong id="resultWrong">0</strong>
+
+                    <span>Wrong</span>
+
+                </div>
+
+                <div class="stat">
+
+                    <strong id="resultAnswered">0</strong>
+
+                    <span>Answered</span>
+
+                </div>
+
+                <div class="stat">
+
+                    <strong id="resultUnanswered">0</strong>
+
+                    <span>Not Answered</span>
+
+                </div>
+
+            </div>
+
+            <div
+
+                id="emailStatus"
+
+                class="message info show"
+
+            >
+
+                Preparing result...
+
+            </div>
+
+            <div class="result-details">
+
+                <h3 style="margin-bottom:14px;">
+
+                    Question-by-question report
+
+                </h3>
+
+                <div id="resultDetails"></div>
+
+            </div>
+
+            <div
+
+                style="
+
+                    display:flex;
+
+                    gap:10px;
+
+                    flex-wrap:wrap;
+
+                    margin-top:20px;
+
+                "
+
+            >
+
+                <button
+
+                    class="btn btn-primary"
+
+                    onclick="newCandidate()"
+
+                >
+
+                    New Examination
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =========================================================
+
+     ADMIN LOGIN
+
+========================================================= -->
+
+<section id="adminLoginScreen" class="screen">
+
+    <div class="page">
+
+        <div class="login-card">
+
+            <div class="welcome">
+
+                TEACHER / ADMIN
+
+            </div>
+
+            <div class="login-title">
+
+                Administrator Login
+
+            </div>
+
+            <div class="login-description">
+
+                Enter the administrator password to access
+
+                examination results and settings.
+
+            </div>
+
+            <form id="adminLoginForm">
+
+                <div class="form-group">
+
+                    <label>
+
+                        Admin password
+
+                    </label>
+
+                    <input
+
+                        type="password"
+
+                        id="adminPasswordInput"
+
+                        class="form-control"
+
+                        placeholder="Enter admin password"
+
+                        required
+
+                    >
+
+                </div>
+
+                <div
+
+                    id="adminLoginMessage"
+
+                    class="message"
+
+                ></div>
+
+                <button
+
+                    type="submit"
+
+                    class="start-btn"
+
+                >
+
+                    Login
+
+                </button>
+
+            </form>
+
+            <button
+
+                class="admin-btn"
+
+                onclick="showScreen('loginScreen')"
+
+            >
+
+                Back to Student Login
+
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =========================================================
+
+     ADMIN DASHBOARD
+
+========================================================= -->
+
+<section id="adminScreen" class="screen">
+
+    <div class="page admin-page">
+
+        <div class="admin-header">
+
+            <div class="admin-header-row">
+
+                <div class="admin-brand">
+
+                    <div class="admin-logo">
+
+                        CA
+
+                    </div>
+
+                    <div>
+
+                        <h1>
+
+                            CHRIST’S ARROWS COLLEGE ADUM-EAST
+
+                        </h1>
+
+                        <p>
+
+                            Digital Technologies · Teacher / Admin Dashboard
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <button
+
+                    class="btn btn-secondary"
+
+                    onclick="logoutAdmin()"
+
+                >
+
+                    Logout
+
+                </button>
+
+            </div>
+
+        </div>
+
+        <div class="admin-layout">
+
+            <!-- SIDEBAR -->
+
+            <aside class="admin-sidebar">
+
+                <button
+
+                    class="side-btn active"
+
+                    data-section="resultsSection"
+
+                    onclick="openAdminSection('resultsSection',this)"
+
+                >
+
+                    📊 Results
+
+                </button>
+
+                <button
+
+                    class="side-btn"
+
+                    data-section="settingsSection"
+
+                    onclick="openAdminSection('settingsSection',this)"
+
+                >
+
+                    ⚙️ Exam Settings
+
+                </button>
+
+                <button
+
+                    class="side-btn"
+
+                    data-section="questionSection"
+
+                    onclick="openAdminSection('questionSection',this)"
+
+                >
+
+                    📚 Question Bank
+
+                </button>
+
+                <button
+
+                    class="side-btn"
+
+                    data-section="helpSection"
+
+                    onclick="openAdminSection('helpSection',this)"
+
+                >
+
+                    ❓ Help / Guide
+
+                </button>
+
+            </aside>
+
+            <main class="admin-content">
+
+                <!-- =============================================
+
+                     RESULTS
+
+                ============================================== -->
+
+                <div
+
+                    id="resultsSection"
+
+                    class="admin-section active"
+
+                >
+
+                    <div class="panel">
+
+                        <div class="panel-title">
+
+                            📊 Recorded Results
+
+                        </div>
+
+                        <div class="panel-description">
+
+                            View examination results recorded during
+
+                            this page session.
+
+                        </div>
+
+                        <div class="summary-grid">
+
+                            <div class="summary-card">
+
+                                <small>
+
+                                    Total Submissions
+
+                                </small>
+
+                                <strong id="totalResults">
+
+                                    0
+
+                                </strong>
+
+                            </div>
+
+                            <div class="summary-card">
+
+                                <small>
+
+                                    SSS 1
+
+                                </small>
+
+                                <strong id="sss1Results">
+
+                                    0
+
+                                </strong>
+
+                            </div>
+
+                            <div class="summary-card">
+
+                                <small>
+
+                                    SSS 2
+
+                                </small>
+
+                                <strong id="sss2Results">
+
+                                    0
+
+                                </strong>
+
+                            </div>
+
+                            <div class="summary-card">
+
+                                <small>
+
+                                    SSS 3
+
+                                </small>
+
+                                <strong id="sss3Results">
+
+                                    0
+
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+                        <div class="action-row">
+
+                            <button
+
+                                class="btn btn-success"
+
+                                onclick="downloadCSV()"
+
+                            >
+
+                                ⬇ Download Results CSV
+
+                            </button>
+
+                            <button
+
+                                class="btn btn-secondary"
+
+                                onclick="renderAdminResults()"
+
+                            >
+
+                                ↻ Refresh
+
+                            </button>
+
+                            <button
+
+                                class="btn btn-danger"
+
+                                onclick="clearSessionResults()"
+
+                            >
+
+                                🗑 Clear Current Session Results
+
+                            </button>
+
+                        </div>
+
+                        <div class="panel">
+
+                            <h3 style="margin-bottom:15px;">
+
+                                Examination Results
+
+                            </h3>
+
+                            <div
+
+                                id="adminResults"
+
+                                class="table-wrap"
+
+                            ></div>
+
+                        </div>
+
+                        <div class="quick-grid">
+
+                            <div class="panel">
+
+                                <h3 style="margin-bottom:15px;">
+
+                                    ⚡ Quick Actions
+
+                                </h3>
+
+                                <button
+
+                                    class="quick-btn"
+
+                                    style="background:#159447;"
+
+                                    onclick="downloadCSV()"
+
+                                >
+
+                                    ⬇ Download All Results (CSV)
+
+                                </button>
+
+                                <button
+
+                                    class="quick-btn"
+
+                                    style="background:#1769e0;"
+
+                                    onclick="sendTestEmail()"
+
+                                >
+
+                                    ✉ Send Test Email via Formspree
+
+                                </button>
+
+                                <button
+
+                                    class="quick-btn"
+
+                                    style="background:#7651c8;"
+
+                                    onclick="openAdminSection('settingsSection')"
+
+                                >
+
+                                    ⚙ Manage Settings
+
+                                </button>
+
+                                <button
+
+                                    class="quick-btn"
+
+                                    style="background:#edf2f4;color:#173e64;"
+
+                                    onclick="openAdminSection('questionSection')"
+
+                                >
+
+                                    📚 View Question Bank
+
+                                </button>
+
+                            </div>
+
+                            <div class="panel">
+
+                                <h3 style="margin-bottom:15px;">
+
+                                    ✉ Email & Formspree Configuration
+
+                                </h3>
+
+                                <div class="settings-note">
+
+                                    Results are sent online through
+
+                                    Formspree when an endpoint is configured.
+
+                                    No local/offline storage is used.
+
+                                </div>
+
+                                <p style="margin-bottom:9px;">
+
+                                    <strong>Teacher Gmail:</strong>
+
+                                    <span id="displayTeacherEmail">
+
+                                        Not configured
+
+                                    </span>
+
+                                </p>
+
+                                <p>
+
+                                    <strong>Formspree Endpoint:</strong>
+
+                                    <span id="displayFormspree">
+
+                                        Not configured
+
+                                    </span>
+
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- =============================================
+
+                     SETTINGS
+
+                ============================================== -->
+
+                <div
+
+                    id="settingsSection"
+
+                    class="admin-section"
+
+                >
+
+                    <div class="panel">
+
+                        <div class="panel-title">
+
+                            ⚙️ Exam Settings
+
+                        </div>
+
+                        <div class="panel-description">
+
+                            Configure the teacher email, Formspree endpoint,
+
+                            class passwords and administrator password.
+
+                        </div>
+
+                        <div class="settings-note">
+
+                            <strong>Important:</strong>
+
+                            These settings are kept only in the current
+
+                            page session. This application does not use
+
+                            localStorage, IndexedDB or a database.
+
+                            <br><br>
+
+                            To make your Formspree endpoint permanent,
+
+                            you can also place it directly in the
+
+                            <code>DEFAULT_SETTINGS</code> section of
+
+                            this HTML file.
+
+                        </div>
+
+                        <div class="settings-grid">
+
+                            <div class="settings-field">
+
+                                <label>
+
+                                    Teacher Gmail
+
+                                </label>
+
+                                <input
+
+                                    id="settingTeacherEmail"
+
+                                    class="form-control"
+
+                                    type="email"
+
+                                    placeholder="teacher@gmail.com"
+
+                                >
+
+                            </div>
+
+                            <div class="settings-field">
+
+                                <label>
+
+                                    Formspree Endpoint
+
+                                </label>
+
+                                <input
+
+                                    id="settingFormspree"
+
+                                    class="form-control"
+
+                                    type="url"
+
+                                    placeholder="https://formspree.io/f/xxxxxxxx"
+
+                                >
+
+                            </div>
+
+                            <div class="settings-field">
+
+                                <label>
+
+                                    SSS 1 Class Password
+
+                                </label>
+
+                                <input
+
+                                    id="settingSSS1"
+
+                                    class="form-control"
+
+                                    type="text"
+
+                                >
+
+                            </div>
+
+                            <div class="settings-field">
+
+                                <label>
+
+                                    SSS 2 Class Password
+
+                                </label>
+
+                                <input
+
+                                    id="settingSSS2"
+
+                                    class="form-control"
+
+                                    type="text"
+
+                                >
+
+                            </div>
+
+                            <div class="settings-field">
+
+                                <label>
+
+                                    SSS 3 Class Password
+
+                                </label>
+
+                                <input
+
+                                    id="settingSSS3"
+
+                                    class="form-control"
+
+                                    type="text"
+
+                                >
+
+                            </div>
+
+                            <div class="settings-field">
+
+                                <label>
+
+                                    Admin Password
+
+                                </label>
+
+                                <input
+
+                                    id="settingAdmin"
+
+                                    class="form-control"
+
+                                    type="text"
+
+                                >
+
+                            </div>
+
+                        </div>
+
+                        <button
+
+                            class="btn btn-primary"
+
+                            onclick="saveSettings()"
+
+                        >
+
+                            💾 Save Settings
+
+                        </button>
+
+                        <div
+
+                            id="settingsMessage"
+
+                            class="message"
+
+                        ></div>
+
+                    </div>
+
+                </div>
+
+                <!-- =============================================
+
+                     QUESTION BANK
+
+                ============================================== -->
+
+                <div
+
+                    id="questionSection"
+
+                    class="admin-section"
+
+                >
+
+                    <div class="panel">
+
+                        <div class="panel-title">
+
+                            📚 Question Bank
+
+                        </div>
+
+                        <div class="panel-description">
+
+                            Current Digital Technologies questions
+
+                            used by the assessment.
+
+                        </div>
+
+                        <div id="questionBankDisplay"></div>
+
+                    </div>
+
+                </div>
+
+                <!-- =============================================
+
+                     HELP
+
+                ============================================== -->
+
+                <div
+
+                    id="helpSection"
+
+                    class="admin-section"
+
+                >
+
+                    <div class="panel">
+
+                        <div class="panel-title">
+
+                            ❓ Help / Guide
+
+                        </div>
+
+                        <div class="panel-description">
+
+                            How the CBT application works.
+
+                        </div>
+
+                        <ul class="help-list">
+
+                            <li>
+
+                                Students select their class and enter
+
+                                the correct class password.
+
+                            </li>
+
+                            <li>
+
+                                Questions are randomly selected from
+
+                                the relevant class question bank.
+
+                            </li>
+
+                            <li>
+
+                                SSS 1 contains 10 questions and has
+
+                                20 minutes.
+
+                            </li>
+
+                            <li>
+
+                                SSS 2 contains 15 questions and has
+
+                                20 minutes.
+
+                            </li>
+
+                            <li>
+
+                                SSS 3 contains 20 questions and has
+
+                                30 minutes.
+
+                            </li>
+
+                            <li>
+
+                                Questions that are not answered are
+
+                                counted separately.
+
+                            </li>
+
+                            <li>
+
+                                Every student's result includes the
+
+                                selected answer and correct answer.
+
+                            </li>
+
+                            <li>
+
+                                When Formspree is configured, the
+
+                                complete result is sent online.
+
+                            </li>
+
+                            <li>
+
+                                The teacher's Gmail is included in
+
+                                the submission information.
+
+                            </li>
+
+                            <li>
+
+                                No localStorage, IndexedDB or database
+
+                                is used.
+
+                            </li>
+
+                            <li>
+
+                                The Admin Results table shows results
+
+                                from the current page session only.
+
+                            </li>
+
+                            <li>
+
+                                Formspree can retain submitted results
+
+                                online according to your Formspree
+
+                                account and settings.
+
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+                </div>
+
+            </main>
+
+        </div>
+
+        <div class="footer">
+
+            CHRIST’S ARROWS COLLEGE ADUM-EAST ·
+
+            Digital Technologies First Term CBT
+
+        </div>
+
+    </div>
+
+</section>
+
+<script>
+
+/* =========================================================
+
+   QUESTION BANK
+
+========================================================= */
+
+const QUESTION_BANK = {
+
+"SSS 1":[
+
+{
+
+q:"Digital technology is best described as the use of electronic systems to create, process, store and communicate _____.",
+
+o:["food","data and information","buildings","fuel"],
+
+a:1
+
+},
+
+{
+
+q:"Which is an example of digital technology?",
+
+o:["Typewriter","Smartphone","Broom","Wheelbarrow"],
+
+a:1
+
+},
+
+{
+
+q:"A major benefit of digital technologies in education is _____.",
+
+o:["slower communication","access to digital learning resources","elimination of all examinations","removal of teachers"],
+
+a:1
+
+},
+
+{
+
+q:"The abacus is historically important because it is an early _____.",
+
+o:["network","calculation device","operating system","web browser"],
+
+a:1
+
+},
+
+{
+
+q:"Which computer generation introduced integrated circuits as a major technology?",
+
+o:["First","Second","Third","Fifth"],
+
+a:2
+
+},
+
+{
+
+q:"The binary number system uses which two digits?",
+
+o:["0 and 1","1 and 2","0 and 9","A and B"],
+
+a:0
+
+},
+
+{
+
+q:"What is the decimal value of binary 1010?",
+
+o:["8","10","12","14"],
+
+a:1
+
+},
+
+{
+
+q:"Which number system uses digits 0 to 7?",
+
+o:["Binary","Decimal","Octal","Hexadecimal"],
+
+a:2
+
+},
+
+{
+
+q:"Which symbol represents decimal 10 in hexadecimal?",
+
+o:["A","B","X","Z"],
+
+a:0
+
+},
+
+{
+
+q:"Which is an input device?",
+
+o:["Monitor","Printer","Keyboard","Speaker"],
+
+a:2
+
+},
+
+{
+
+q:"Which device is primarily used for long-term storage?",
+
+o:["RAM","SSD","CPU register","Cache"],
+
+a:1
+
+},
+
+{
+
+q:"A peripheral device generally _____.",
+
+o:[
+
+"is always inside the CPU",
+
+"adds input, output or other functions to a computer",
+
+"replaces the operating system",
+
+"is always a processor"
+
+],
+
+a:1
+
+},
+
+{
+
+q:"Which is system software?",
+
+o:["Operating system","Presentation slide","Photo","Music file"],
+
+a:0
+
+},
+
+{
+
+q:"Which software is mainly used for creating documents?",
+
+o:["Word processor","Antivirus hardware","Keyboard driver only","BIOS chip"],
+
+a:0
+
+},
+
+{
+
+q:"A utility program is mainly designed to _____.",
+
+o:[
+
+"maintain, protect or manage computer resources",
+
+"replace the CPU",
+
+"create electricity",
+
+"increase monitor size"
+
+],
+
+a:0
+
+},
+
+{
+
+q:"Which is an operating system?",
+
+o:["Windows","HTML","JPEG","USB"],
+
+a:0
+
+},
+
+{
+
+q:"One major function of an operating system is to _____.",
+
+o:[
+
+"manage computer resources",
+
+"print money",
+
+"manufacture hardware",
+
+"create electricity"
+
+],
+
+a:0
+
+},
+
+{
+
+q:"Which practice helps prevent overheating?",
+
+o:[
+
+"Blocking ventilation openings",
+
+"Keeping vents clear and cleaning dust",
+
+"Placing it in water",
+
+"Covering the fan"
+
+],
+
+a:1
+
+},
+
+{
+
+q:"A user should protect personal information by _____.",
+
+o:[
+
+"sharing passwords publicly",
+
+"using strong passwords and safe practices",
+
+"opening every unknown link",
+
+"disabling all security updates"
+
+],
+
+a:1
+
+},
+
+{
+
+q:"The smallest commonly used unit of digital information is the _____.",
+
+o:["byte","bit","gigabyte","terabyte"],
+
+a:1
+
+},
+
+{
+
+q:"How many bits make one byte?",
+
+o:["2","4","8","16"],
+
+a:2
+
+},
+
+{
+
+q:"ASCII is mainly a standard for representing _____.",
+
+o:["characters","electricity","screen size","computer weight"],
+
+a:0
+
+},
+
+{
+
+q:"Unicode is useful because it supports _____.",
+
+o:[
+
+"only English letters",
+
+"many writing systems and symbols",
+
+"only numbers",
+
+"only images"
+
+],
+
+a:1
+
+},
+
+{
+
+q:"A digital image is commonly represented using _____.",
+
+o:["pixels","pages","gears","pipes"],
+
+a:0
+
+},
+
+{
+
+q:"Sound can be stored digitally by converting analogue sound into _____.",
+
+o:["digital samples","paper","metal","heat"],
+
+a:0
+
+}
+
+],
+
+"SSS 2":[
+
+{
+
+q:"Week 1: A school secretary wants to prepare a letter that will be sent to 100 parents. Which computer application is most appropriate?",
+
+o:["Word processor","Calculator","Media player","Antivirus"],
+
+a:0
+
+},
+
+{
+
+q:"Week 1: A student changes the font, alignment and spacing of a document. What is the main purpose of these actions?",
+
+o:[
+
+"To format the document and improve its presentation",
+
+"To delete the operating system",
+
+"To increase RAM",
+
+"To create a network"
+
+],
+
+a:0
+
+},
+
+{
+
+q:"Week 2: A teacher has a list of 200 students and wants to produce individual letters containing each student's name. Which feature should be used?",
+
+o:["Mail merge","Slide transition","Page break","Spell check"],
+
+a:0
+
+},
+
+{
+
+q:"Week 2: In a mail-merge exercise, the teacher changes one student's address in the data list. What should happen when the merge is performed again?",
+
+o:[
+
+"The updated address can appear in that student's letter",
+
+"All letters must be typed again manually",
+
+"The computer must be restarted",
+
+"The document becomes an image"
+
+],
+
+a:0
+
+},
+
+{
+
+q:"Week 2: A school wants every new examination report to have the same logo, heading and layout. What would be most efficient?",
+
+o:[
+
+"Create and use a template",
+
+"Type the report from scratch every time",
+
+"Use a calculator",
+
+"Use a web browser only"
+
+],
+
+a:0
+
+},
+
+{
+
+q:"Week 2: A macro is useful when a teacher repeatedly performs the same sequence of formatting commands because it can _____.",
+
+o:[
+
+"automate the repeated commands",
+
+"increase the monitor size",
+
+"replace the keyboard",
+
+"remove all documents"
+
+],
+
+a:0
+
+},
+
+{
+
+q:"Week 3: A teacher has thousands of student records in a spreadsheet and wants to summarize performance by class and subject. Which feature is most suitable?",
+
+o:["Pivot table","Page colour","WordArt","Slide transition"],
+
+a:0
+
+},
+
+{
+
+q:"Week 3: A spreadsheet contains scores in cells B2:B31. Which formula correctly calculates the total?",
+
+o:[
+
+"=SUM(B2:B31)",
+
+"=TOTAL(B2-B31)",
+
+"=ADD ALL(B2:B31)",
+
+"=COUNT TOTAL B2:B31"
+
+],
+
+a:0
+
+},
+
+{
+
+q:"Week 3: A school changes the expected number of students and wants to see how this affects projected income. Which spreadsheet technique is most appropriate?",
+
+o:[
+
+"Scenario/what-if analysis",
+
+"Spell checking",
+
+"Mail merge",
+
+"Slide animation"
+
+],
+
+a:0
+
+},
+
+{
+
+q:"Week 3: A financial spreadsheet gives a different result after one assumption is changed. What does this demonstrate?",
+
+o:[
+
+"The model is using relationships between input assumptions and calculated results",
+
+"The computer has stopped working",
+
+"The spreadsheet is automatically a presentation",
+
+"The keyboard has changed"
+
+],
+
+a:0
+
+},
+
+{
+
+q:"Week 4: A presentation contains 60 words in very small text on one slide. What is the most appropriate improvement?",
+
+o:[
+
+"Reduce the amount of text and use readable font sizes",
+
+"Add more animations",
+
+"Make the text smaller",
+
+"Use random colours"
+
+],
+
+a:0
+
+},
+
+{
+
+q:"Week 4: A student is presenting a science project and wants the audience to see an experiment while he explains it. Which presentation feature would be most useful?",
+
+o:["Embedded video","Page numbering only","Spell check","Mail merge"],
+
+a:0
+
+},
+
+{
+
+q:"Week 4: Why should animations and transitions be used carefully in a professional presentation?",
+
+o:[
+
+"Too many can distract the audience from the main message",
+
+"They always damage the computer",
+
+"They prevent slides from opening",
+
+"They automatically delete text"
+
+],
+
+a:0
+
+},
+
+{
+
+q:"Week 4: A presentation is difficult to read because the text colour is almost the same as the background. What principle has been ignored?",
+
+o:[
+
+"Colour contrast and readability",
+
+"Mail merging",
+
+"Data validation",
+
+"File compression"
+
+],
+
+a:0
+
+},
+
+{
+
+q:"Week 6: HTML is mainly used to _____.",
+
+o:[
+
+"structure content on web pages",
+
+"calculate electricity bills",
+
+"protect a computer from viruses",
+
+"replace the operating system"
+
+],
+
+a:0
+
+},
+
+{
+
+q:"Week 6: A student writes <h1>Computer Science</h1>. What is the purpose of the h1 element?",
+
+o:[
+
+"It creates a main/largest standard heading",
+
+"It creates a spreadsheet",
+
+"It creates a database",
+
+"It connects a printer"
+
+],
+
+a:0
+
+},
+
+{
+
+q:"Week 8: CSS is mainly used to _____.",
+
+o:[
+
+"control the presentation and styling of web pages",
+
+"store files permanently",
+
+"replace the CPU",
+
+"create electricity"
+
+],
+
+a:0
+
+},
+
+{
+
+q:"Week 8: A website has the correct HTML structure but looks plain. Which CSS property would change the colour of the text?",
+
+o:["color","href","src","alt"],
+
+a:0
+
+},
+
+{
+
+q:"Week 8: Two web pages use the same class named 'student'. If the teacher wants to change the appearance of every element using that class, which CSS selector should be used?",
+
+o:[".student","#student","student()","@student"],
+
+a:0
+
+},
+
+{
+
+q:"Week 9: A school website should work properly on phones, tablets and computers. Which design approach should be used?",
+
+o:[
+
+"Responsive web design",
+
+"Fixed-size design only",
+
+"Paper-based design",
+
+"Offline-only design"
+
+],
+
+a:0
+
+},
+
+{
+
+q:"Week 9: A student wants a button on a web page to open another website. Which HTML element is appropriate?",
+
+o:[
+
+"Anchor element <a>",
+
+"Paragraph <p>",
+
+"Heading <h1>",
+
+"Table row <tr>"
+
+],
+
+a:0
+
+},
+
+{
+
+q:"Week 9: If an HTML link contains href=\"https://example.com\", what does href specify?",
+
+o:[
+
+"The destination of the hyperlink",
+
+"The text colour",
+
+"The image size",
+
+"The page title"
+
+],
+
+a:0
+
+},
+
+{
+
+q:"Week 10: A school has finished developing its website but students outside the school cannot access it. What service is needed to make the website files available online?",
+
+o:[
+
+"Web hosting",
+
+"Word processing",
+
+"Spreadsheet calculation",
+
+"Mail merge"
+
+],
+
+a:0
+
+},
+
+{
+
+q:"Week 10: A school wants parents to remember its website address easily. Which would be most useful?",
+
+o:[
+
+"A suitable domain name",
+
+"A larger keyboard",
+
+"More slide animations",
+
+"A spreadsheet formula"
+
+],
+
+a:0
+
+},
+
+{
+
+q:"Week 10: A website works correctly on a developer's computer but becomes difficult to use on a mobile phone. What is the most likely issue?",
+
+o:[
+
+"The site has not been designed responsively for smaller screens",
+
+"The computer has no keyboard",
+
+"The HTML language has disappeared",
+
+"The domain name is automatically deleted"
+
+],
+
+a:0
+
+}
+
+],
+
+"SSS 3":[
+
+{
+
+q:"Which statement correctly describes a function?",
+
+o:[
+
+"A reusable block of code that performs a task",
+
+"A computer cable",
+
+"A storage device",
+
+"A monitor"
+
+],
+
+a:0
+
+},
+
+{
+
+q:"What is the main advantage of using functions in a program?",
+
+o:[
+
+"Code reuse and easier maintenance",
+
+"More duplicated code",
+
+"Removing variables",
+
+"Making programs impossible to test"
+
+],
+
+a:0
+
+},
+
+{
+
+q:"Which data structure is commonly used to store a collection of values?",
+
+o:["Array/list","Monitor","Printer","Keyboard"],
+
+a:0
+
+},
+
+{
+
+q:"In object-oriented programming, a class is commonly a _____.",
+
+o:[
+
+"Blueprint for creating objects",
+
+"Network cable",
+
+"Web address",
+
+"Storage device"
+
+],
+
+a:0
+
+},
+
+{
+
+q:"An object is commonly described as _____.",
+
+o:[
+
+"An instance of a class",
+
+"An operating system",
+
+"A network protocol",
+
+"A file extension"
+
+],
+
+a:0
+
+},
+
+{
+
+q:"SDLC stands for _____.",
+
+o:[
+
+"Software Development Life Cycle",
+
+"System Data Logic Control",
+
+"Software Design Language Code",
+
+"Secure Digital Link Connection"
+
+],
+
+a:0
+
+},
+
+{
+
+q:"Which is an SDLC phase?",
+
+o:[
+
+"Requirements analysis",
+
+"Keyboard painting",
+
+"Monitor charging",
+
+"Cable printing"
+
+],
+
+a:0
+
+},
+
+{
+
+q:"The waterfall model generally follows _____.",
+
+o:[
+
+"A sequential phase-by-phase approach",
+
+"Random development",
+
+"Testing only",
+
+"Deployment only"
+
+],
+
+a:0
+
+},
+
+{
+
+q:"Agile development emphasizes _____.",
+
+o:[
+
+"Iterative development and frequent feedback",
+
+"No testing",
+
+"No collaboration",
+
+"One delivery with no feedback"
+
+],
+
+a:0
+
+},
+
+{
+
+q:"An IP address is used to _____.",
+
+o:[
+
+"Identify a device/interface on a network",
+
+"Increase storage physically",
+
+"Replace a keyboard",
+
+"Create a monitor"
+
+],
+
+a:0
+
+},
+
+{
+
+q:"Which device commonly forwards packets between different networks?",
+
+o:["Router","Keyboard","Monitor","Printer"],
+
+a:0
+
+},
+
+{
+
+q:"HTTPS is mainly used for _____.",
+
+o:[
+
+"Secure web communication",
+
+"Printing",
+
+"Spreadsheet calculations",
+
+"Keyboard input"
+
+],
+
+a:0
+
+},
+
+{
+
+q:"Cloud computing commonly provides resources through _____.",
+
+o:[
+
+"Network/internet-based services",
+
+"Paper files",
+
+"Typewriters",
+
+"Printer cartridges"
+
+],
+
+a:0
+
+},
+
+{
+
+q:"One benefit of virtualization is _____.",
+
+o:[
+
+"Running multiple isolated environments on one physical host",
+
+"Removing all operating systems",
+
+"Making networks unnecessary",
+
+"Preventing software installation"
+
+],
+
+a:0
+
+},
+
+{
+
+q:"IoT refers to physical objects that _____.",
+
+o:[
+
+"Use sensors/software/connectivity to collect or exchange data",
+
+"Cannot communicate",
+
+"Are made only of paper",
+
+"Must always be manually controlled"
+
+],
+
+a:0
+
+},
+
+{
+
+q:`Code 1: What will this Java code display?
+
+int a = 5;
+
+int b = 3;
+
+System.out.println(a + b);`,
+
+o:["8","2","15","53"],
+
+a:0
+
+},
+
+{
+
+q:`Code 2: What will this Java code display?
+
+int x = 10;
+
+int y = 4;
+
+System.out.println(x - y);`,
+
+o:["6","14","40","104"],
+
+a:0
+
+},
+
+{
+
+q:`Code 3: What will this Java code display?
+
+int a = 6;
+
+int b = 4;
+
+System.out.println(a * b);`,
+
+o:["10","24","2","64"],
+
+a:1
+
+},
+
+{
+
+q:`Code 4: What will this Java code display?
+
+int a = 20;
+
+int b = 5;
+
+System.out.println(a / b);`,
+
+o:["4","15","25","100"],
+
+a:0
+
+},
+
+{
+
+q:`Code 5: What is the value of x after this code?
+
+int x = 7;
+
+x = x + 3;`,
+
+o:["3","7","10","21"],
+
+a:2
+
+},
+
+{
+
+q:`Code 6: What will be printed?
+
+int x = 10;
+
+if(x > 5)
+
+ System.out.println("YES");
+
+else
+
+ System.out.println("NO");`,
+
+o:["YES","NO","10","ERROR"],
+
+a:0
+
+},
+
+{
+
+q:`Code 7: What will this loop print?
+
+for(int i=1; i<=3; i++)
+
+ System.out.print(i);`,
+
+o:["123","012","321","111"],
+
+a:0
+
+},
+
+{
+
+q:`Code 8: How many times will the loop execute?
+
+for(int i=0; i<5; i++)
+
+ System.out.println(i);`,
+
+o:["4","5","6","0"],
+
+a:1
+
+},
+
+{
+
+q:`Code 9: What will be printed?
+
+int a=5;
+
+int b=5;
+
+if(a==b)
+
+ System.out.println("Equal");`,
+
+o:["Equal","Not Equal","55","Error"],
+
+a:0
+
+},
+
+{
+
+q:`Code 10: What is the final value of count?
+
+int count=2;
+
+count++;
+
+count++;`,
+
+o:["2","3","4","5"],
+
+a:2
+
+},
+
+{
+
+q:`Code 11: What will this code display?
+
+int age=20;
+
+if(age>=18)
+
+ System.out.println("Adult");`,
+
+o:["Adult","Child","20","Nothing"],
+
+a:0
+
+},
+
+{
+
+q:`Code 12: What will this method return?
+
+static int add(int a,int b){
+
+ return a+b;
+
+}
+
+If add(4,6) is called, the result is:`,
+
+o:["2","10","24","46"],
+
+a:1
+
+},
+
+{
+
+q:`Code 13: What will this code print?
+
+int x=3;
+
+int y=2;
+
+System.out.println(x+y*2);`,
+
+o:["10","7","8","5"],
+
+a:1
+
+},
+
+{
+
+q:`Code 14: What does this Java statement do?
+
+System.out.println("Hello");`,
+
+o:[
+
+"Displays Hello on the screen",
+
+"Deletes Hello",
+
+"Creates a database",
+
+"Starts a network"
+
+],
+
+a:0
+
+},
+
+{
+
+q:`Code 15: What will this code print?
+
+int x=8;
+
+if(x%2==0)
+
+ System.out.println("Even");
+
+else
+
+ System.out.println("Odd");`,
+
+o:["Even","Odd","8","Error"],
+
+a:0
+
+}
+
+]};
+
+/* =========================================================
+
+   CLASS CONFIGURATION
+
+========================================================= */
+
+const CLASS_CONFIG = {
+
+    "SSS 1":{
+
+        time:20*60,
+
+        questions:10
+
+    },
+
+    "SSS 2":{
+
+        time:20*60,
+
+        questions:15
+
+    },
+
+    "SSS 3":{
+
+        time:30*60,
+
+        questions:20
+
+    }
+
+};
+
+/* =========================================================
+
+   SETTINGS
+
+========================================================= */
+
+/*
+
+ IMPORTANT:
+
+ If you already have your Formspree endpoint, you can put it
+
+ here so you don't need to type it every time.
+
+ Example:
+
+ formspree:"https://formspree.io/f/abcdwxyz"
+
+*/
+
+const DEFAULT_SETTINGS = {
+
+    teacherEmail:"",
+
+    formspree:"",
+
+    SSS1Password:"DTSS1",
+
+    SSS2Password:"DTSS2",
+
+    SSS3Password:"DTSS3",
+
+    adminPassword:"DTADMIN"
+
+};
+
+/*
+
+ NO localStorage.
+
+ NO database.
+
+ These variables only exist while this page is open.
+
+*/
+
+let settings = {...DEFAULT_SETTINGS};
+
+let results = [];
+
+let currentStudent = null;
+
+let currentQuestions = [];
+
+let currentAnswers = [];
+
+let timerInterval = null;
+
+let timeRemaining = 0;
+
+let currentResult = null;
+
+/* =========================================================
+
+   UTILITY
+
+========================================================= */
+
+function showScreen(id){
+
+    document
+
+        .querySelectorAll(".screen")
+
+        .forEach(screen=>{
+
+            screen.classList.remove("active");
+
+        });
+
+    document
+
+        .getElementById(id)
+
+        .classList.add("active");
+
+    window.scrollTo({
+
+        top:0,
+
+        behavior:"smooth"
+
+    });
+
+}
+
+/* =========================================================
+
+   RANDOM QUESTIONS
+
+========================================================= */
+
+function shuffle(array){
+
+    const arr = [...array];
+
+    for(
+
+        let i=arr.length-1;
+
+        i>0;
+
+        i--
+
+    ){
+
+        const j =
+
+            Math.floor(Math.random()*(i+1));
+
+        [arr[i],arr[j]] =
+
+            [arr[j],arr[i]];
+
+    }
+
+    return arr;
+
+}
+
+/* =========================================================
+
+   LOGIN MESSAGE
+
+========================================================= */
+
+function loginMessage(text,type="error"){
+
+    const box =
+
+        document.getElementById("loginMessage");
+
+    box.textContent = text;
+
+    box.className =
+
+        "message show " + type;
+
+}
+
+/* =========================================================
+
+   STUDENT LOGIN
+
+========================================================= */
+
+document
+
+.getElementById("studentForm")
+
+.addEventListener(
+
+"submit",
+
+function(e){
+
+    e.preventDefault();
+
+    const name =
+
+        document
+
+        .getElementById("studentName")
+
+        .value
+
+        .trim();
+
+    const examNumber =
+
+        document
+
+        .getElementById("studentExamNumber")
+
+        .value
+
+        .trim();
+
+    const studentClass =
+
+        document
+
+        .getElementById("studentClass")
+
+        .value;
+
+    const password =
+
+        document
+
+        .getElementById("classPassword")
+
+        .value;
+
+    if(!name){
+
+        loginMessage(
+
+            "Please enter the student's full name."
+
+        );
+
+        return;
+
+    }
+
+    if(!examNumber){
+
+        loginMessage(
+
+            "Please enter the registration/examination number."
+
+        );
+
+        return;
+
+    }
+
+    if(!studentClass){
+
+        loginMessage(
+
+            "Please select the student's class."
+
+        );
+
+        return;
+
+    }
+
+    let correctPassword = "";
+
+    if(studentClass==="SSS 1"){
+
+        correctPassword =
+
+            settings.SSS1Password;
+
+    }
+
+    if(studentClass==="SSS 2"){
+
+        correctPassword =
+
+            settings.SSS2Password;
+
+    }
+
+    if(studentClass==="SSS 3"){
+
+        correctPassword =
+
+            settings.SSS3Password;
+
+    }
+
+    if(password !== correctPassword){
+
+        loginMessage(
+
+            "Incorrect class password. Please check with your teacher."
+
+        );
+
+        return;
+
+    }
+
+    currentStudent = {
+
+        name:name,
+
+        examNumber:examNumber,
+
+        class:studentClass,
+
+        startedAt:new Date().toISOString()
+
+    };
+
+    startExam();
+
+});
+
+/* =========================================================
+
+   START EXAM
+
+========================================================= */
+
+function startExam(){
+
+    const config =
+
+        CLASS_CONFIG[currentStudent.class];
+
+    currentQuestions =
+
+        shuffle(
+
+            QUESTION_BANK[currentStudent.class]
+
+        ).slice(
+
+            0,
+
+            config.questions
+
+        );
+
+    currentAnswers =
+
+        new Array(
+
+            currentQuestions.length
+
+        ).fill(null);
+
+    document
+
+        .getElementById("examStudentName")
+
+        .textContent =
+
+        currentStudent.name;
+
+    document
+
+        .getElementById("examStudentClass")
+
+        .textContent =
+
+        currentStudent.class;
+
+    document
+
+        .getElementById("examStudentNumber")
+
+        .textContent =
+
+        currentStudent.examNumber;
+
+    renderQuestions();
+
+    showScreen("examScreen");
+
+    startTimer(config.time);
+
+    updateProgress();
+
+}
+
+/* =========================================================
+
+   RENDER QUESTIONS
+
+========================================================= */
+
+function renderQuestions(){
+
+    const container =
+
+        document.getElementById(
+
+            "questionsContainer"
+
+        );
+
+    container.innerHTML = "";
+
+    currentQuestions.forEach(
+
+    (question,index)=>{
+
+        const card =
+
+            document.createElement("div");
+
+        card.className =
+
+            "question-card";
+
+        const number =
+
+            document.createElement("div");
+
+        number.className =
+
+            "question-number";
+
+        number.textContent =
+
+            `QUESTION ${index+1}`;
+
+        card.appendChild(number);
+
+        const text =
+
+            document.createElement("div");
+
+        text.className =
+
+            "question-text";
+
+        text.textContent =
+
+            question.q;
+
+        card.appendChild(text);
+
+        question.o.forEach(
+
+        (option,optionIndex)=>{
+
+            const label =
+
+                document.createElement("label");
+
+            label.className =
+
+                "option";
+
+            label.id =
+
+                `option-${index}-${optionIndex}`;
+
+            const radio =
+
+                document.createElement("input");
+
+            radio.type = "radio";
+
+            radio.name =
+
+                `question-${index}`;
+
+            radio.value =
+
+                optionIndex;
+
+            radio.addEventListener(
+
+                "change",
+
+                function(){
+
+                    currentAnswers[index] =
+
+                        Number(this.value);
+
+                    document
+
+                        .querySelectorAll(
+
+                            `[name="question-${index}"]`
+
+                        )
+
+                        .forEach(input=>{
+
+                            input
+
+                            .parentElement
+
+                            .classList.remove(
+
+                                "selected"
+
+                            );
+
+                        });
+
+                    label.classList.add(
+
+                        "selected"
+
+                    );
+
+                    updateProgress();
+
+                }
+
+            );
+
+            label.appendChild(radio);
+
+            const span =
+
+                document.createElement("span");
+
+            span.textContent =
+
+                option;
+
+            label.appendChild(span);
+
+            card.appendChild(label);
+
+        });
+
+        container.appendChild(card);
+
+    });
+
+}
+
+/* =========================================================
+
+   PROGRESS
+
+========================================================= */
+
+function updateProgress(){
+
+    const answered =
+
+        currentAnswers.filter(
+
+            a=>a!==null
+
+        ).length;
+
+    const total =
+
+        currentQuestions.length;
+
+    const percent =
+
+        total
+
+        ? Math.round(
+
+            answered/total*100
+
+        )
+
+        : 0;
+
+    document
+
+        .getElementById("progressText")
+
+        .textContent =
+
+        `${answered} of ${total} answered`;
+
+    document
+
+        .getElementById("progressPercent")
+
+        .textContent =
+
+        `${percent}%`;
+
+    document
+
+        .getElementById("progressBar")
+
+        .style.width =
+
+        `${percent}%`;
+
+}
+
+/* =========================================================
+
+   TIMER
+
+========================================================= */
+
+function startTimer(seconds){
+
+    clearInterval(timerInterval);
+
+    timeRemaining = seconds;
+
+    updateTimerDisplay();
+
+    timerInterval =
+
+        setInterval(
+
+        ()=>{
+
+            timeRemaining--;
+
+            updateTimerDisplay();
+
+            if(timeRemaining <= 0){
+
+                clearInterval(
+
+                    timerInterval
+
+                );
+
+                submitExam(true);
+
+            }
+
+        },
+
+        1000
+
+        );
+
+}
+
+function updateTimerDisplay(){
+
+    const timer =
+
+        document.getElementById("timer");
+
+    const minutes =
+
+        Math.floor(
+
+            timeRemaining/60
+
+        );
+
+    const seconds =
+
+        timeRemaining%60;
+
+    timer.textContent =
+
+        `${String(minutes).padStart(2,"0")}:${String(seconds).padStart(2,"0")}`;
+
+    if(timeRemaining<=60){
+
+        timer.classList.add(
+
+            "warning"
+
+        );
+
+    }else{
+
+        timer.classList.remove(
+
+            "warning"
+
+        );
+
+    }
+
+}
+
+/* =========================================================
+
+   SUBMIT CONFIRMATION
+
+========================================================= */
+
+function confirmSubmit(){
+
+    const answered =
+
+        currentAnswers.filter(
+
+            a=>a!==null
+
+        ).length;
+
+    const total =
+
+        currentQuestions.length;
+
+    const unanswered =
+
+        total-answered;
+
+    const confirmed =
+
+        confirm(
+
+            `You have answered ${answered} of ${total} questions.\n\n`+
+
+            `${unanswered} question(s) are not answered.\n\n`+
+
+            `Do you want to submit your examination?`
+
+        );
+
+    if(confirmed){
+
+        submitExam(false);
+
+    }
+
+}
+
+/* =========================================================
+
+   SUBMIT EXAM
+
+========================================================= */
+
+async function submitExam(autoSubmitted=false){
+
+    if(!currentStudent){
+
+        return;
+
+    }
+
+    if(!currentQuestions.length){
+
+        return;
+
+    }
+
+    clearInterval(
+
+        timerInterval
+
+    );
+
+    const details = [];
+
+    let correct = 0;
+
+    let answered = 0;
+
+    currentQuestions.forEach(
+
+    (question,index)=>{
+
+        const selected =
+
+            currentAnswers[index];
+
+        const isAnswered =
+
+            selected !== null &&
+
+            selected !== undefined;
+
+        if(isAnswered){
+
+            answered++;
+
+        }
+
+        const isCorrect =
+
+            isAnswered &&
+
+            selected === question.a;
+
+        if(isCorrect){
+
+            correct++;
+
+        }
+
+        let status =
+
+            "NOT ANSWERED";
+
+        if(isCorrect){
+
+            status =
+
+                "CORRECT";
+
+        }else if(isAnswered){
+
+            status =
+
+                "WRONG";
+
+        }
+
+        details.push({
+
+            number:index+1,
+
+            question:question.q,
+
+            studentAnswer:
+
+                isAnswered
+
+                ? question.o[selected]
+
+                : "NOT ANSWERED",
+
+            correctAnswer:
+
+                question.o[question.a],
+
+            status:status
+
+        });
+
+    });
+
+    const total =
+
+        currentQuestions.length;
+
+    const wrong =
+
+        answered-correct;
+
+    const unanswered =
+
+        total-answered;
+
+    const percentage =
+
+        total
+
+        ? Number(
+
+            ((correct/total)*100)
+
+            .toFixed(2)
+
+        )
+
+        : 0;
+
+    const result = {
+
+        id:
+
+            Date.now().toString(),
+
+        date:
+
+            new Date().toISOString(),
+
+        studentName:
+
+            currentStudent.name,
+
+        examNumber:
+
+            currentStudent.examNumber,
+
+        class:
+
+            currentStudent.class,
+
+        total:total,
+
+        answered:answered,
+
+        unanswered:unanswered,
+
+        correct:correct,
+
+        wrong:wrong,
+
+        percentage:percentage,
+
+        autoSubmitted:
+
+            autoSubmitted,
+
+        details:details
+
+    };
+
+    saveResult(result);
+
+    currentResult =
+
+        result;
+
+    showResult(result);
+
+    await emailResult(
+
+        result
+
+    );
+
+}
+
+/* =========================================================
+
+   SAVE SESSION RESULT
+
+========================================================= */
+
+function saveResult(result){
+
+    /*
+
+      IMPORTANT:
+
+      This is NOT localStorage.
+
+      This only keeps results in memory while
+
+      the current page is open.
+
+    */
+
+    results.push(result);
+
+}
+
+/* =========================================================
+
+   SHOW RESULT
+
+========================================================= */
+
+function showResult(result){
+
+    document
+
+        .getElementById("resultScore")
+
+        .textContent =
+
+        `${result.percentage}%`;
+
+    document
+
+        .getElementById("resultCorrect")
+
+        .textContent =
+
+        result.correct;
+
+    document
+
+        .getElementById("resultWrong")
+
+        .textContent =
+
+        result.wrong;
+
+    document
+
+        .getElementById("resultAnswered")
+
+        .textContent =
+
+        result.answered;
+
+    document
+
+        .getElementById("resultUnanswered")
+
+        .textContent =
+
+        result.unanswered;
+
+    const details =
+
+        document.getElementById(
+
+            "resultDetails"
+
+        );
+
+    details.innerHTML = "";
+
+    result.details.forEach(
+
+    item=>{
+
+        const div =
+
+            document.createElement("div");
+
+        let cls =
+
+            "unanswered";
+
+        if(item.status==="CORRECT"){
+
+            cls="correct";
+
+        }
+
+        if(item.status==="WRONG"){
+
+            cls="wrong";
+
+        }
+
+        div.className =
+
+            `result-item ${cls}`;
+
+        div.innerHTML = `
+
+            <div class="result-item-question">
+
+                Question ${item.number}: 
+
+                ${escapeHTML(item.question)}
+
+            </div>
+
+            <div class="answer-line">
+
+                <strong>Student Answer:</strong>
+
+                ${escapeHTML(item.studentAnswer)}
+
+            </div>
+
+            <div class="answer-line">
+
+                <strong>Correct Answer:</strong>
+
+                ${escapeHTML(item.correctAnswer)}
+
+            </div>
+
+            <span class="status ${cls}">
+
+                ${item.status}
+
+            </span>
+
+        `;
+
+        details.appendChild(div);
+
+    });
+
+    const emailStatus =
+
+        document.getElementById(
+
+            "emailStatus"
+
+        );
+
+    emailStatus.className =
+
+        "message info show";
+
+    emailStatus.textContent =
+
+        "Sending your result to the teacher...";
+
+    showScreen("resultScreen");
+
+}
+
+/* =========================================================
+
+   ESCAPE HTML
+
+========================================================= */
+
+function escapeHTML(value){
+
+    return String(value)
+
+        .replace(/&/g,"&amp;")
+
+        .replace(/</g,"&lt;")
+
+        .replace(/>/g,"&gt;")
+
+        .replace(/"/g,"&quot;")
+
+        .replace(/'/g,"&#039;");
+
+}
+
+/* =========================================================
+
+   CREATE EMAIL REPORT
+
+========================================================= */
+
+function createEmailReport(result){
+
+    let report = "";
+
+    report +=
+
+        "DIGITAL TECHNOLOGIES CBT RESULT\n\n";
+
+    report +=
+
+        `Student Name: ${result.studentName}\n`;
+
+    report +=
+
+        `Class: ${result.class}\n`;
+
+    report +=
+
+        `Examination Number: ${result.examNumber}\n`;
+
+    report +=
+
+        `Date/Time: ${new Date(result.date).toLocaleString()}\n`;
+
+    report +=
+
+        `Submission: ${
+
+            result.autoSubmitted
+
+            ? "Automatic - Time Expired"
+
+            : "Student Submitted"
+
+        }\n\n`;
+
+    report +=
+
+        "RESULT SUMMARY\n";
+
+    report +=
+
+        "-----------------------------\n";
+
+    report +=
+
+        `Total Questions: ${result.total}\n`;
+
+    report +=
+
+        `Questions Answered: ${result.answered}\n`;
+
+    report +=
+
+        `Questions Not Answered: ${result.unanswered}\n`;
+
+    report +=
+
+        `Correct Answers: ${result.correct}\n`;
+
+    report +=
+
+        `Wrong Answers: ${result.wrong}\n`;
+
+    report +=
+
+        `Score: ${result.correct}/${result.total}\n`;
+
+    report +=
+
+        `Percentage: ${result.percentage}%\n\n`;
+
+    report +=
+
+        "QUESTION-BY-QUESTION REPORT\n";
+
+    report +=
+
+        "=============================\n\n";
+
+    result.details.forEach(
+
+    item=>{
+
+        report +=
+
+            `Question ${item.number}\n`;
+
+        report +=
+
+            `Question: ${item.question}\n`;
+
+        report +=
+
+            `Student Answer: ${item.studentAnswer}\n`;
+
+        report +=
+
+            `Correct Answer: ${item.correctAnswer}\n`;
+
+        report +=
+
+            `Status: ${item.status}\n`;
+
+        report +=
+
+            "-----------------------------\n\n";
+
+    });
+
+    return report;
+
+}
+
+/* =========================================================
+
+   SEND RESULT THROUGH FORMSPREE
+
+========================================================= */
+
+async function emailResult(result){
+
+    const emailStatus =
+
+        document.getElementById(
+
+            "emailStatus"
+
+        );
+
+    if(!settings.formspree){
+
+        emailStatus.className =
+
+            "message info show";
+
+        emailStatus.textContent =
+
+            "Result calculated successfully. Online email sending is not configured. Please enter your Formspree endpoint under Teacher / Admin → Exam Settings.";
+
+        return;
+
+    }
+
+    try{
+
+        const formData =
+
+            new FormData();
+
+        formData.append(
+
+            "_subject",
+
+            `CBT Result - ${result.studentName} - ${result.class}`
+
+        );
+
+        if(settings.teacherEmail){
+
+            formData.append(
+
+                "_replyto",
+
+                settings.teacherEmail
+
+            );
+
+        }
+
+        formData.append(
+
+            "Teacher Gmail",
+
+            settings.teacherEmail || "Not configured"
+
+        );
+
+        formData.append(
+
+            "Student Name",
+
+            result.studentName
+
+        );
+
+        formData.append(
+
+            "Class",
+
+            result.class
+
+        );
+
+        formData.append(
+
+            "Examination Number",
+
+            result.examNumber
+
+        );
+
+        formData.append(
+
+            "Date and Time",
+
+            new Date(
+
+                result.date
+
+            ).toLocaleString()
+
+        );
+
+        formData.append(
+
+            "Total Questions",
+
+            result.total
+
+        );
+
+        formData.append(
+
+            "Questions Answered",
+
+            result.answered
+
+        );
+
+        formData.append(
+
+            "Questions Not Answered",
+
+            result.unanswered
+
+        );
+
+        formData.append(
+
+            "Correct Answers",
+
+            result.correct
+
+        );
+
+        formData.append(
+
+            "Wrong Answers",
+
+            result.wrong
+
+        );
+
+        formData.append(
+
+            "Score",
+
+            `${result.correct}/${result.total}`
+
+        );
+
+        formData.append(
+
+            "Percentage",
+
+            `${result.percentage}%`
+
+        );
+
+        formData.append(
+
+            "Submission Type",
+
+            result.autoSubmitted
+
+            ? "Automatic - Time Expired"
+
+            : "Student Submitted"
+
+        );
+
+        formData.append(
+
+            "Complete Question Report",
+
+            createEmailReport(result)
+
+        );
+
+        const response =
+
+            await fetch(
+
+                settings.formspree,
+
+                {
+
+                    method:"POST",
+
+                    body:formData,
+
+                    headers:{
+
+                        "Accept":
+
+                            "application/json"
+
+                    }
+
+                }
+
+            );
+
+        if(response.ok){
+
+            emailStatus.className =
+
+                "message success show";
+
+            emailStatus.textContent =
+
+                "✓ Result recorded and sent through the online Formspree email service.";
+
+        }else{
+
+            emailStatus.className =
+
+                "message error show";
+
+            emailStatus.textContent =
+
+                "Result calculated, but the online email service rejected the submission. Please check your Formspree endpoint.";
+
+        }
+
+    }catch(error){
+
+        console.error(error);
+
+        emailStatus.className =
+
+            "message error show";
+
+        emailStatus.textContent =
+
+            "Result calculated, but the online email service could not be reached. Please check your internet connection and Formspree endpoint.";
+
+    }
+
+}
+
+/* =========================================================
+
+   NEW CANDIDATE
+
+========================================================= */
+
+function newCandidate(){
+
+    clearInterval(
+
+        timerInterval
+
+    );
+
+    currentStudent=null;
+
+    currentQuestions=[];
+
+    currentAnswers=[];
+
+    currentResult=null;
+
+    document
+
+        .getElementById("studentForm")
+
+        .reset();
+
+    document
+
+        .getElementById("loginMessage")
+
+        .className =
+
+        "message";
+
+    showScreen("loginScreen");
+
+}
+
+/* =========================================================
+
+   ADMIN LOGIN
+
+========================================================= */
+
+document
+
+.getElementById("adminAccessBtn")
+
+.addEventListener(
+
+"click",
+
+function(){
+
+    showScreen(
+
+        "adminLoginScreen"
+
+    );
+
+});
+
+document
+
+.getElementById("adminLoginForm")
+
+.addEventListener(
+
+"submit",
+
+function(e){
+
+    e.preventDefault();
+
+    const password =
+
+        document
+
+        .getElementById(
+
+            "adminPasswordInput"
+
+        )
+
+        .value;
+
+    const message =
+
+        document
+
+        .getElementById(
+
+            "adminLoginMessage"
+
+        );
+
+    if(password !== settings.adminPassword){
+
+        message.className =
+
+            "message error show";
+
+        message.textContent =
+
+            "Incorrect administrator password.";
+
+        return;
+
+    }
+
+    message.className =
+
+        "message";
+
+    document
+
+        .getElementById(
+
+            "adminPasswordInput"
+
+        )
+
+        .value = "";
+
+    showScreen(
+
+        "adminScreen"
+
+    );
+
+    renderAdminResults();
+
+    loadSettingsForm();
+
+    renderQuestionBank();
+
+});
+
+/* =========================================================
+
+   ADMIN SECTIONS
+
+========================================================= */
+
+function openAdminSection(
+
+    sectionId,
+
+    button=null
+
+){
+
+    document
+
+        .querySelectorAll(
+
+            ".admin-section"
+
+        )
+
+        .forEach(
+
+            section=>{
+
+                section.classList.remove(
+
+                    "active"
+
+                );
+
+            }
+
+        );
+
+    const section =
+
+        document.getElementById(
+
+            sectionId
+
+        );
+
+    if(section){
+
+        section.classList.add(
+
+            "active"
+
+        );
+
+    }
+
+    document
+
+        .querySelectorAll(
+
+            ".side-btn"
+
+        )
+
+        .forEach(
+
+            btn=>{
+
+                btn.classList.remove(
+
+                    "active"
+
+                );
+
+            }
+
+        );
+
+    if(button){
+
+        button.classList.add(
+
+            "active"
+
+        );
+
+    }else{
+
+        const matching =
+
+            document.querySelector(
+
+                `.side-btn[data-section="${sectionId}"]`
+
+            );
+
+        if(matching){
+
+            matching.classList.add(
+
+                "active"
+
+            );
+
+        }
+
+    }
+
+    if(sectionId==="resultsSection"){
+
+        renderAdminResults();
+
+    }
+
+    if(sectionId==="settingsSection"){
+
+        loadSettingsForm();
+
+    }
+
+    if(sectionId==="questionSection"){
+
+        renderQuestionBank();
+
+    }
+
+}
+
+/* =========================================================
+
+   LOGOUT ADMIN
+
+========================================================= */
+
+function logoutAdmin(){
+
+    showScreen(
+
+        "loginScreen"
+
+    );
+
+}
+
+/* =========================================================
+
+   RENDER ADMIN RESULTS
+
+========================================================= */
+
+function renderAdminResults(){
+
+    const container =
+
+        document.getElementById(
+
+            "adminResults"
+
+        );
+
+    const total =
+
+        results.length;
+
+    const sss1 =
+
+        results.filter(
+
+            r=>r.class==="SSS 1"
+
+        ).length;
+
+    const sss2 =
+
+        results.filter(
+
+            r=>r.class==="SSS 2"
+
+        ).length;
+
+    const sss3 =
+
+        results.filter(
+
+            r=>r.class==="SSS 3"
+
+        ).length;
+
+    document
+
+        .getElementById("totalResults")
+
+        .textContent =
+
+        total;
+
+    document
+
+        .getElementById("sss1Results")
+
+        .textContent =
+
+        sss1;
+
+    document
+
+        .getElementById("sss2Results")
+
+        .textContent =
+
+        sss2;
+
+    document
+
+        .getElementById("sss3Results")
+
+        .textContent =
+
+        sss3;
+
+    updateEmailDisplay();
+
+    if(!results.length){
+
+        container.innerHTML = `
+
+            <div class="message info show">
+
+                No results recorded in this page session yet.
+
+                Student results are sent online through Formspree
+
+                when an endpoint is configured.
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+    const sorted =
+
+        [...results].reverse();
+
+    let html = `
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>Date/Time</th>
+
+                    <th>Class</th>
+
+                    <th>Student Name</th>
+
+                    <th>Reg. No.</th>
+
+                    <th>Answered</th>
+
+                    <th>Not Answered</th>
+
+                    <th>Score</th>
+
+                    <th>%</th>
+
+                    <th>Submission</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+    `;
+
+    sorted.forEach(
+
+    result=>{
+
+        html += `
+
+            <tr>
+
+                <td>
+
+                    ${new Date(
+
+                        result.date
+
+                    ).toLocaleString()}
+
+                </td>
+
+                <td>
+
+                    ${escapeHTML(result.class)}
+
+                </td>
+
+                <td>
+
+                    ${escapeHTML(result.studentName)}
+
+                </td>
+
+                <td>
+
+                    ${escapeHTML(result.examNumber)}
+
+                </td>
+
+                <td>
+
+                    ${result.answered}
+
+                </td>
+
+                <td>
+
+                    ${result.unanswered}
+
+                </td>
+
+                <td>
+
+                    ${result.correct}/${result.total}
+
+                </td>
+
+                <td>
+
+                    ${result.percentage}%
+
+                </td>
+
+                <td>
+
+                    <span class="badge ${
+
+                        result.autoSubmitted
+
+                        ? "badge-orange"
+
+                        : "badge-green"
+
+                    }">
+
+                        ${
+
+                            result.autoSubmitted
+
+                            ? "Time expired"
+
+                            : "Student submitted"
+
+                        }
+
+                    </span>
+
+                </td>
+
+            </tr>
+
+        `;
+
+    });
+
+    html += `
+
+            </tbody>
+
+        </table>
+
+    `;
+
+    container.innerHTML =
+
+        html;
+
+}
+
+/* =========================================================
+
+   CLEAR CURRENT SESSION RESULTS
+
+========================================================= */
+
+function clearSessionResults(){
+
+    if(!results.length){
+
+        alert(
+
+            "There are no current-session results to clear."
+
+        );
+
+        return;
+
+    }
+
+    const confirmed =
+
+        confirm(
+
+            "Clear all results recorded in the current page session?"
+
+        );
+
+    if(!confirmed){
+
+        return;
+
+    }
+
+    results.length=0;
+
+    renderAdminResults();
+
+}
+
+/* =========================================================
+
+   DOWNLOAD CSV
+
+========================================================= */
+
+function downloadCSV(){
+
+    if(!results.length){
+
+        alert(
+
+            "There are no current-session results to download."
+
+        );
+
+        return;
+
+    }
+
+    const headers = [
+
+        "Date/Time",
+
+        "Student Name",
+
+        "Class",
+
+        "Examination Number",
+
+        "Total Questions",
+
+        "Answered",
+
+        "Not Answered",
+
+        "Correct",
+
+        "Wrong",
+
+        "Score",
+
+        "Percentage",
+
+        "Submission Type"
+
+    ];
+
+    const rows =
+
+        results.map(
+
+        result=>[
+
+            new Date(
+
+                result.date
+
+            ).toLocaleString(),
+
+            result.studentName,
+
+            result.class,
+
+            result.examNumber,
+
+            result.total,
+
+            result.answered,
+
+            result.unanswered,
+
+            result.correct,
+
+            result.wrong,
+
+            `${result.correct}/${result.total}`,
+
+            `${result.percentage}%`,
+
+            result.autoSubmitted
+
+            ? "Automatic - Time Expired"
+
+            : "Student Submitted"
+
+        ]);
+
+    const csv = [
+
+        headers,
+
+        ...rows
+
+    ].map(
+
+        row =>
+
+            row.map(
+
+                cell =>
+
+                    `"${String(cell)
+
+                        .replace(/"/g,'""')}"`
+
+            ).join(",")
+
+    ).join("\n");
+
+    const blob =
+
+        new Blob(
+
+            [csv],
+
+            {
+
+                type:"text/csv;charset=utf-8;"
+
+            }
+
+        );
+
+    const url =
+
+        URL.createObjectURL(
+
+            blob
+
+        );
+
+    const link =
+
+        document.createElement("a");
+
+    link.href =
+
+        url;
+
+    link.download =
+
+        "CBT_Results.csv";
+
+    document.body.appendChild(
+
+        link
+
+    );
+
+    link.click();
+
+    document.body.removeChild(
+
+        link
+
+    );
+
+    URL.revokeObjectURL(
+
+        url
+
+    );
+
+}
+
+/* =========================================================
+
+   LOAD SETTINGS FORM
+
+========================================================= */
+
+function loadSettingsForm(){
+
+    document
+
+        .getElementById(
+
+            "settingTeacherEmail"
+
+        )
+
+        .value =
+
+        settings.teacherEmail;
+
+    document
+
+        .getElementById(
+
+            "settingFormspree"
+
+        )
+
+        .value =
+
+        settings.formspree;
+
+    document
+
+        .getElementById(
+
+            "settingSSS1"
+
+        )
+
+        .value =
+
+        settings.SSS1Password;
+
+    document
+
+        .getElementById(
+
+            "settingSSS2"
+
+        )
+
+        .value =
+
+        settings.SSS2Password;
+
+    document
+
+        .getElementById(
+
+            "settingSSS3"
+
+        )
+
+        .value =
+
+        settings.SSS3Password;
+
+    document
+
+        .getElementById(
+
+            "settingAdmin"
+
+        )
+
+        .value =
+
+        settings.adminPassword;
+
+    updateEmailDisplay();
+
+}
+
+/* =========================================================
+
+   SAVE SETTINGS
+
+========================================================= */
+
+function saveSettings(){
+
+    settings.teacherEmail =
+
+        document
+
+        .getElementById(
+
+            "settingTeacherEmail"
+
+        )
+
+        .value
+
+        .trim();
+
+    settings.formspree =
+
+        document
+
+        .getElementById(
+
+            "settingFormspree"
+
+        )
+
+        .value
+
+        .trim();
+
+    settings.SSS1Password =
+
+        document
+
+        .getElementById(
+
+            "settingSSS1"
+
+        )
+
+        .value
+
+        .trim();
+
+    settings.SSS2Password =
+
+        document
+
+        .getElementById(
+
+            "settingSSS2"
+
+        )
+
+        .value
+
+        .trim();
+
+    settings.SSS3Password =
+
+        document
+
+        .getElementById(
+
+            "settingSSS3"
+
+        )
+
+        .value
+
+        .trim();
+
+    settings.adminPassword =
+
+        document
+
+        .getElementById(
+
+            "settingAdmin"
+
+        )
+
+        .value
+
+        .trim();
+
+    const message =
+
+        document.getElementById(
+
+            "settingsMessage"
+
+        );
+
+    message.className =
+
+        "message success show";
+
+    message.textContent =
+
+        "✓ Settings applied for this current page session. No offline storage was used.";
+
+    updateEmailDisplay();
+
+}
+
+/* =========================================================
+
+   EMAIL DISPLAY
+
+========================================================= */
+
+function updateEmailDisplay(){
+
+    const teacher =
+
+        document.getElementById(
+
+            "displayTeacherEmail"
+
+        );
+
+    const endpoint =
+
+        document.getElementById(
+
+            "displayFormspree"
+
+        );
+
+    if(teacher){
+
+        teacher.textContent =
+
+            settings.teacherEmail ||
+
+            "Not configured";
+
+    }
+
+    if(endpoint){
+
+        endpoint.textContent =
+
+            settings.formspree ||
+
+            "Not configured";
+
+    }
+
+}
+
+/* =========================================================
+
+   TEST EMAIL
+
+========================================================= */
+
+async function sendTestEmail(){
+
+    if(!settings.formspree){
+
+        alert(
+
+            "Please enter your Formspree endpoint first."
+
+        );
+
+        return;
+
+    }
+
+    try{
+
+        const formData =
+
+            new FormData();
+
+        formData.append(
+
+            "_subject",
+
+            "CBT System Test Email"
+
+        );
+
+        formData.append(
+
+            "_replyto",
+
+            settings.teacherEmail || ""
+
+        );
+
+        formData.append(
+
+            "Teacher Gmail",
+
+            settings.teacherEmail || "Not configured"
+
+        );
+
+        formData.append(
+
+            "Message",
+
+            "This is a test submission from the Christ's Arrows College Digital Technologies CBT application."
+
+        );
+
+        const response =
+
+            await fetch(
+
+                settings.formspree,
+
+                {
+
+                    method:"POST",
+
+                    body:formData,
+
+                    headers:{
+
+                        Accept:
+
+                            "application/json"
+
+                    }
+
+                }
+
+            );
+
+        if(response.ok){
+
+            alert(
+
+                "Test submission sent successfully through Formspree."
+
+            );
+
+        }else{
+
+            alert(
+
+                "Formspree rejected the test submission. Check the endpoint."
+
+            );
+
+        }
+
+    }catch(error){
+
+        alert(
+
+            "Could not connect to Formspree."
+
+        );
+
+    }
+
+}
+
+/* =========================================================
+
+   QUESTION BANK DISPLAY
+
+========================================================= */
+
+function renderQuestionBank(){
+
+    const container =
+
+        document.getElementById(
+
+            "questionBankDisplay"
+
+        );
+
+    container.innerHTML = "";
+
+    Object.keys(
+
+        QUESTION_BANK
+
+    ).forEach(
+
+    className=>{
+
+        const bank =
+
+            document.createElement(
+
+                "div"
+
+            );
+
+        bank.className =
+
+            "bank-class";
+
+        const heading =
+
+            document.createElement(
+
+                "div"
+
+            );
+
+        heading.className =
+
+            "bank-heading";
+
+        heading.textContent =
+
+            `${className} — ${QUESTION_BANK[className].length} Questions`;
+
+        bank.appendChild(
+
+            heading
+
+        );
+
+        QUESTION_BANK[className]
+
+        .forEach(
+
+        (question,index)=>{
+
+            const item =
+
+                document.createElement(
+
+                    "div"
+
+                );
+
+            item.className =
+
+                "bank-question";
+
+            let optionsHTML = "";
+
+            question.o.forEach(
+
+            (option,optionIndex)=>{
+
+                optionsHTML += `
+
+                    <div class="${
+
+                        optionIndex===question.a
+
+                        ? "correct-answer"
+
+                        : ""
+
+                    }">
+
+                        ${String.fromCharCode(65+optionIndex)}.
+
+                        ${escapeHTML(option)}
+
+                        ${
+
+                            optionIndex===question.a
+
+                            ? " ✓ Correct answer"
+
+                            : ""
+
+                        }
+
+                    </div>
+
+                `;
+
+            });
+
+            item.innerHTML = `
+
+                <strong>
+
+                    ${index+1}. 
+
+                    ${escapeHTML(question.q)}
+
+                </strong>
+
+                <div class="bank-options">
+
+                    ${optionsHTML}
+
+                </div>
+
+            `;
+
+            bank.appendChild(
+
+                item
+
+            );
+
+        });
+
+        container.appendChild(
+
+            bank
+
+        );
+
+    });
+
+}
+
+/* =========================================================
+
+   INITIALIZATION
+
+========================================================= */
+
+document.addEventListener(
+
+    "DOMContentLoaded",
+
+    function(){
+
+        renderQuestionBank();
+
+    }
+
+);
+
+</script>
+
+</body>
+
+</html>
